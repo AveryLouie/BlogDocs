@@ -1,0 +1,55 @@
+readme for DNACrusher
+
+Licence:  Creative Commons BY SA
+
+more info at www.tequals0.wordpress.com
+
+Usage:
+
+Import the DNACrusher module and pyplot
+
+    >>>import DNACusher
+
+    >>>import matplotlib.pyplot as plt
+
+easy peasyImport your data from a Fasta File
+
+Make a file object from your fasta file
+
+    >>>sequence=open(‘Fasta_File.txt’,'r’)
+
+ta-da!
+
+Convert Your File Object to A String
+
+    >>>sequence=DNACrusher.fasta_to_string(sequence)
+
+now sequence is a string, which is way easier to deal with
+
+Reverse Complement
+
+    >>>sequence=DNACrusher.reverse(sequence)
+
+    >>>sequence=DNACrusher.complement(sequence)
+
+‘atgcaata’->’tattgcat’
+
+Overlap N Base Pairs
+
+    >>>DNACrusher.crush(forward,reverse,N_BasePairs)
+
+This will return the count of matched bps and the longest run of pbs in a tuple (count, longest)
+
+Overlap Up to N Base Pairs
+
+    >>>align=DNACrusher.allign(forward,reverse,N_BasePairs)
+
+This will return a list of tuples [ (pairs_overlapped,(count,longest) , ...]
+
+Now to Plot It
+
+    >>>plt.plot([ x[1][0] for x in align])  #plot the number of agreement
+
+    >>>plt.plot(x[1][1] for x in align]) #plot the record # of runs
+
+    >>>plt.show() #show the graph!
